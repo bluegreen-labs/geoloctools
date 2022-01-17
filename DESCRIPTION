@@ -1,0 +1,33 @@
+Package: geoloctools
+Type: Package
+Title: A Geolocation Tracking Toolbox
+Version: 1.0
+Authors@R: c(person(
+               family = "Hufkens",
+               given = "Koen",
+               email = "koen.hufkens@gmail.com",
+               role = c("aut", "cre"),
+               comment = c(ORCID = "0000-0002-5070-8109")),
+            person(given = "BlueGreen Labs",
+              role = c("cph", "fnd"))
+           )
+Description: A set of functions to pre-process geolocation tracking data. This
+  includes both light loggers, GPS loggers of all kinds, and tries to ensure
+  interoperability between various devices and formats for synthesis and
+  analysis.
+URL: https://github.com/bluegreen-labs/geoloctools
+BugReports: https://github.com/bluegreen-labs/geoloctools/issues
+Depends:
+    R (>= 3.6)
+Imports:
+    raster
+License: AGPL-3
+LazyData: true
+ByteCompile: true
+RoxygenNote: 7.1.2
+Suggests:
+    rmarkdown,
+    covr,
+    testthat
+VignetteBuilder: knitr
+Encoding: UTF-8
