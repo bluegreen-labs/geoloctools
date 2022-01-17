@@ -7,7 +7,7 @@
 #' @return
 #' @export
 
-sr_read_pos <- function(pos){
+gl_read_pos <- function(pos){
 
   # read original position data
   df <- read.table(pos, skip = 5, sep = ",", stringsAsFactors = FALSE)
