@@ -119,14 +119,19 @@
 <div id="converting-migrate-technology-data-to-pamlr-formatting" class="section level3">
 <h3 class="hasAnchor">
 <a href="#converting-migrate-technology-data-to-pamlr-formatting" class="anchor"></a>Converting Migrate Technology data to PAMLr formatting</h3>
-<p>If you’ve cloned the R project you can open the project file and run the below code on the included demo data to generate an example activity and light logging plot (based upon the code in the PAMLr documentation).</p>
+<p>If you’ve installed the package you can also generate activity and light logging plot (based upon the code in the <code>PAMLr</code> documentation) by converting Migrate Technology light logger files to the <code>PAMLr</code> R package format for further processing.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bluegreen-labs/geoloctools">geoloctools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">pamlr</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="co"># load demo data from Migrate Technologies files</span>
-<span class="va">PAM_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/glt_migtech_pamlr.html">glt_migtech_pamlr</a></span><span class="op">(</span><span class="st">"data/"</span><span class="op">)</span>
+<span class="va">PAM_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/glt_migtech_pamlr.html">glt_migtech_pamlr</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+        <span class="st">"extdata"</span>,
+        package <span class="op">=</span> <span class="st">"geoloctools"</span>,
+        mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="op">)</span>
 
 <span class="co"># grab one particular logger (subset main list)</span>
 <span class="va">PAM_data</span> <span class="op">&lt;-</span> <span class="va">PAM_data</span><span class="op">$</span><span class="va">CC893</span>

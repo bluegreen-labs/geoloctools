@@ -43,9 +43,10 @@ df <- glt_read_pos("your_position_file.pos")
 
 ### Converting Migrate Technology data to PAMLr formatting
 
-If you've cloned the R project you can open the project file and run the below
-code on the included demo data to generate an example activity and light logging
-plot (based upon the code in the PAMLr documentation).
+If you've installed the package you can also generate activity and light logging
+plot (based upon the code in the `PAMLr` documentation) by converting Migrate
+Technology light logger files to the `PAMLr` R package format for further
+processing.
 
 ```r
 library(geoloctools)
@@ -53,7 +54,12 @@ library(pamlr)
 library(tidyverse)
 
 # load demo data from Migrate Technologies files
-PAM_data <- glt_migtech_pamlr("data/")
+PAM_data <- glt_migtech_pamlr(
+  system.file(
+        "extdata",
+        package = "geoloctools",
+        mustWork = TRUE)
+  )
 
 # grab one particular logger (subset main list)
 PAM_data <- PAM_data$CC893
