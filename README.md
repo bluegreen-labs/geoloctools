@@ -72,4 +72,4 @@ plot_sensorimage(PAM_data$light$date, labely=FALSE,
                  col=c("black",viridis::cividis(90)), cex=1.2, cex.main = 2)
 ```
 
-![](./sensor_image.png)
+![](https://raw.githubusercontent.com/bluegreen-labs/geoloctools/main/sensor_image.png)
