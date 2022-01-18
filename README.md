@@ -1,4 +1,4 @@
-# GeoLocTools
+# GeoLocTools <img src='logo.png' align="right" height="138.5" />
 
 A set of functions to pre-process geolocation tracking data. This includes 
 both light loggers, GPS loggers of all kinds, and tries to ensure 
