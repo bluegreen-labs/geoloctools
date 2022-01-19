@@ -11,10 +11,11 @@ Due to the inclusion of a high resolution geoid map the package is fairly large
 (97 MB). This is less than ideal, yet functional. A solution will be sought for
 this situation to be more CRAN compliant.
 
-Warning: this package is made on personal request and therefore a temporary
+Warning: this package is made on personal request and therefore is a temporary
 convenience tool. Although the intention is to solidify some of this more
-permanently when and how is to be seen. The package might therefore change
-name and function at any time. Do not rely on this code operationally.
+permanently, when and how is to be seen. The package might therefore change
+name and function at any time. Do not rely on this code operationally in
+an online workflow.
 
 ## Installation
 
