@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • geoloctools</title>
+<title>Get geoid correction — glt_geoid • geoloctools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -47,7 +47,9 @@
 <!-- ropensci -->
 <link href="../bglabs.css" rel="stylesheet">
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Get geoid correction — glt_geoid" />
+<meta property="og:description" content="Get a geoid correction value
+for a latitude longitude pair" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -59,7 +61,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,54 +122,44 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Get geoid correction</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bluegreen-labs/geoloctools/blob/master/R/glt_geoid.R'><code>R/glt_geoid.R</code></a></small>
+    <div class="hidden name"><code>glt_geoid.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Get a geoid correction value
+for a latitude longitude pair</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>glt_geoid</span><span class='op'>(</span><span class='va'>longitude</span>, <span class='va'>latitude</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="glt_geoid.html">glt_geoid()</a></code> </p>
-        </td>
-        <td><p>Get geoid correction</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="glt_migtech_pamlr.html">glt_migtech_pamlr()</a></code> </p>
-        </td>
-        <td><p>Converts Migrate Tech data to PAMLr</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="glt_read_pos.html">glt_read_pos()</a></code> </p>
-        </td>
-        <td><p>Read .pos file to data frame</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>longitude</th>
+      <td><p>longitude, single value or vector</p></td>
+    </tr>
+    <tr>
+      <th>latitude</th>
+      <td><p>latitude, single value or vector</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>geoid height, for the correction of values measured relative
+ to a reference ellipsoid (GPS)</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='va'>correction</span> <span class='op'>&lt;-</span> <span class='fu'>glt_geoid</span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
