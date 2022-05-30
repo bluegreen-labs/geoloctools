@@ -11,6 +11,8 @@
 #' the .lux files) is returned as a top level list
 #' item, within it contained the data as formated
 #' according to
+#'
+#' @export
 
 glt_migtech_pamlr <- function(path){
 
