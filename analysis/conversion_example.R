@@ -1,9 +1,22 @@
+# install libraries from github
+# not hosted on CRAN
+#if(!require(devtools)){install.packages("devtools")}
+#devtools::install_github("bluegreen-labs/geoloctools")
+#devtools::install_github("KiranLDA/pamlr")
+#devtools::install_github("SLisovski/GeoLight")
+
+# load libraries
 library(pamlr)
+library(geoloctools)
 library(tidyverse)
-source("migtech2pamlr.R")
 
 # load demo data from Migrate Technologies files
-PAM_data <- migtech2pamlr("data/")
+PAM_data <- glt_migtech_pamlr(
+  path = system.file(
+    "extdata",
+    package = "geoloctools",
+    mustWork = TRUE)
+)
 
 # grab one particular logger (subset main list)
 PAM_data <- PAM_data$CC893
