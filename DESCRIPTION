@@ -22,7 +22,7 @@ Depends:
 Imports:
     raster
 Remotes:
-    SLisovski/GeoLight
+    SLisovski/GeoLight,
     KiranLDA/pamlr
 License: AGPL-3
 LazyData: true
