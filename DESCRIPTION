@@ -21,6 +21,9 @@ Depends:
     R (>= 3.6)
 Imports:
     raster
+Remotes:
+    SLisovski/GeoLight
+    KiranLDA/pamlr
 License: AGPL-3
 LazyData: true
 ByteCompile: true
