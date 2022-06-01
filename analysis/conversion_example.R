@@ -12,14 +12,11 @@ library(tidyverse)
 
 # load demo data from Migrate Technologies files
 PAM_data <- glt_migtech_pamlr(
-  path = system.file(
-    "extdata",
-    package = "geoloctools",
-    mustWork = TRUE)
+  path = "~/Desktop/logger_data/"
 )
 
 # grab one particular logger (subset main list)
-PAM_data <- PAM_data$CC893
+PAM_data <- PAM_data$CC906
 
 # plot activity and light levels as shown in the
 # PAMLr documentation
