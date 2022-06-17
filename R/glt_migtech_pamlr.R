@@ -37,7 +37,7 @@ glt_migtech_pamlr <- function(path){
       mutate(
         date = as.POSIXct(
           date,
-          "%d/%m/%Y %H:%M:%S", tz = "UTC")
+          "%d/%m/%Y %H:%M:%S", tz = "GMT")
       )
 
     # format light data correctly
@@ -65,7 +65,7 @@ glt_migtech_pamlr <- function(path){
         mutate(
           date = as.POSIXct(
             date,
-            "%d/%m/%Y %H:%M:%S", tz = "UTC")
+            "%d/%m/%Y %H:%M:%S", tz = "GMT")
         )
 
       variables <- c(
