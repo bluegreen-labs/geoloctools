@@ -4,15 +4,21 @@
 \alias{glt_flatten_PAML}
 \title{Flatten PAMLr data}
 \usage{
-glt_flatten_PAML(pamlr_data)
+glt_flatten_PAML(pamlr_data, lux = FALSE)
 }
 \arguments{
 \item{pamlr_data}{pam data as a nested list}
+
+\item{lux}{process lux files to report light levels for geolight
+processing}
 }
 \value{
 returns a tidy tibble with activity, pressure, pitch and
  temperature data
 }
 \description{
-Convert nested PAMLr (list) data to a tidy data frame.
+Convert nested PAMLr (list) data to a tidy data frame. Only
+processes meta-data or light level data separate as they
+generally have different sampling frequencies (use the
+lux parameter to switch between both).
 }

@@ -18,9 +18,13 @@ Description: A set of functions to pre-process geolocation tracking data. This
 URL: https://github.com/bluegreen-labs/geoloctools
 BugReports: https://github.com/bluegreen-labs/geoloctools/issues
 Depends:
-    R (>= 3.6)
+    R (>= 4.2)
 Imports:
-    raster
+    raster,
+    dplyr,
+    tidyr,
+    readr,
+    utils
 Remotes:
     SLisovski/GeoLight,
     KiranLDA/pamlr
@@ -31,6 +35,7 @@ RoxygenNote: 7.1.2
 Suggests:
     rmarkdown,
     covr,
-    testthat
+    testthat,
+    knitr
 VignetteBuilder: knitr
 Encoding: UTF-8

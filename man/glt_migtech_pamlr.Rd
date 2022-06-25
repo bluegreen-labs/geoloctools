@@ -4,11 +4,16 @@
 \alias{glt_migtech_pamlr}
 \title{Converts Migrate Tech data to PAMLr}
 \usage{
-glt_migtech_pamlr(path)
+glt_migtech_pamlr(path, recursive = TRUE, folder_group = TRUE)
 }
 \arguments{
 \item{path}{location of lux (and optional .deg)
 Migrate Technologies data files}
+
+\item{recursive}{recursively search path, TRUE or FALSE}
+
+\item{folder_group}{add top most folder as a variable
+if recursive is true}
 }
 \value{
 A nested list of variables, ID (taken from

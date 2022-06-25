@@ -1,6 +1,9 @@
 #' Flatten PAMLr data
 #'
-#' Convert nested PAMLr (list) data to a tidy data frame.
+#' Convert nested PAMLr (list) data to a tidy data frame. Only
+#' processes meta-data or light level data separate as they
+#' generally have different sampling frequencies (use the
+#' lux parameter to switch between both).
 #'
 #' @param pamlr_data pam data as a nested list
 #' @param lux process lux files to report light levels for geolight
@@ -22,28 +25,75 @@ glt_flatten_PAML <- function(
     if (lux){
       light <- tag[["light"]]
 
-      print(str(light))
+      if ("folder" %in% names(light)){
+        data.frame(
+          tag = x,
+          folder = light$folder,
+          date = light$date,
+          light = light$obs
+        )
+      } else {
+        data.frame(
+          tag = x,
+          date = light$date,
+          light = light$obs
+        )
+      }
 
-      data.frame(
-        tag = x,
-        date = light$date,
-        light = light$obs
-      )
     } else {
 
-      # grab pressure and acceleration data (only)
-      pressure <- tag[['pressure']]
-      acceleration <- tag[['acceleration']]
-      temperature <- tag[['temperature']]
+      variables <- names(tag)
 
-      data.frame(
-        tag = x,
-        date = pressure$date,
-        pressure = pressure$obs,
-        pitch = acceleration$pit,
-        activity = acceleration$act,
-        temperature = temperature$obs
-      )
+      # grab pressure and acceleration data (only)
+      if('pressure' %in% variables ) {
+        pressure <- tag[['pressure']]
+        date <- pressure$date
+        folder <- pressure$folder
+        pressure <- pressure$obs
+      } else {
+        pressure <- NA
+      }
+
+      if('acceleration' %in% variables ) {
+        acceleration <- tag[['acceleration']]
+        date <- acceleration$date
+        folder <- acceleration$folder
+        pitch <- acceleration$pit
+        activity <- acceleration$act
+      } else {
+        pitch <- NA
+        activity <- NA
+      }
+
+      if('temperature' %in% variables ) {
+        temperature <- tag[['temperature']]
+        date <- temperature$date
+        folder <- temperature$folder
+        temperature <- temperature$obs
+      } else {
+        temperature <- NA
+      }
+
+      if (exists("folder")){
+        data.frame(
+          tag = x,
+          folder = folder,
+          date = date,
+          pressure = pressure,
+          pitch = pitch,
+          activity = activity,
+          temperature = temperature
+        )
+      } else {
+        data.frame(
+          tag = x,
+          date = date,
+          pressure = pressure,
+          pitch = pitch,
+          activity = activity,
+          temperature = temperature
+        )
+      }
     }
   })
 

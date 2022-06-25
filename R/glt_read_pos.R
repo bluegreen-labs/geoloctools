@@ -5,7 +5,7 @@
 #' @param pos the location of a *.pos data-logger file
 #' @param geoid correct altitudes for geiod shape (default = TRUE)
 #'
-#' @return
+#' @return data frame with position data
 #' @export
 
 glt_read_pos <- function(
@@ -14,7 +14,7 @@ glt_read_pos <- function(
   ){
 
   # read original position data
-  df <- read.table(pos, skip = 5, sep = ",", stringsAsFactors = FALSE)
+  df <- utils::read.table(pos, skip = 5, sep = ",", stringsAsFactors = FALSE)
 
   # drop columns without known meaning (to me anyway)
   df <- df[,-c(7,12,13)]

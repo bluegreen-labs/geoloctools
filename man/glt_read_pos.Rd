@@ -12,7 +12,7 @@ glt_read_pos(pos, geoid = TRUE)
 \item{geoid}{correct altitudes for geiod shape (default = TRUE)}
 }
 \value{
-
+data frame with position data
 }
 \description{
 Converts .pos file to data frame for easy manipulation
