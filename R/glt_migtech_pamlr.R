@@ -34,6 +34,10 @@ glt_migtech_pamlr <- function(
     full.names = TRUE
   )
 
+  # ignore drift adjusted files
+  # for now
+  light_logs <- light_logs[!grepl("drift",light_logs)]
+
   # gather properly formatted data lists
   data_list <- lapply(light_logs, function(log){
 
