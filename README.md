@@ -60,15 +60,16 @@ library(pamlr)
 library(tidyverse)
 
 # load demo data from Migrate Technologies files
-PAM_data <- glt_migtech_pamlr(
+PAM <- glt_migtech_pamlr(
   system.file(
-        "extdata",
-        package = "geoloctools",
-        mustWork = TRUE)
-  )
+    "extdata",
+    package = "geoloctools",
+    mustWork = TRUE),
+  drift_adj = FALSE
+)
 
 # grab one particular logger (subset main list)
-PAM_data <- PAM_data$CC893
+PAM_data <- PAM$CC893
 
 # plot activity and light levels as shown in the
 # PAMLr documentation
@@ -82,6 +83,26 @@ plot_sensorimage(PAM_data$acceleration$date, ploty=FALSE,
 plot_sensorimage(PAM_data$light$date, labely=FALSE,
                  PAM_data$light$obs,  main="Light",
                  col=c("black",viridis::cividis(90)), cex=1.2, cex.main = 2)
+
+# loop over all available items in the list and
+# plot them
+
+lapply(PAM, function(PAM_subset){
+
+  # plot activity and light levels as shown in the
+  # PAMLr documentation
+  par( mfrow= c(1,2), oma=c(0,2,0,6))
+  par(mar =  c(4,2,4,2))
+
+  plot_sensorimage(PAM_subset$acceleration$date, ploty=FALSE,
+                   log(PAM_subset$acceleration$act+0.001), main = "Activity",
+                   col=c("black",viridis::cividis(90)), cex=1.2, cex.main = 2)
+
+  plot_sensorimage(PAM_subset$light$date, labely=FALSE,
+                   PAM_subset$light$obs,  main="Light",
+                   col=c("black",viridis::cividis(90)), cex=1.2, cex.main = 2)
+})
+
 ```
 
 ![](https://raw.githubusercontent.com/bluegreen-labs/geoloctools/main/sensor_image.png)
