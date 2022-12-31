@@ -47,54 +47,52 @@ glt_flatten_PAML <- function(
       # grab pressure and acceleration data (only)
       if('pressure' %in% variables ) {
         pressure <- tag[['pressure']]
-        date <- pressure$date
-        folder <- pressure$folder
-        pressure <- pressure$obs
+
+        pressure <- data.frame(
+          date = pressure$date,
+          folder = pressure$folder,
+          pressure = pressure$obs
+        )
+
       } else {
-        pressure <- NA
+        pressure <- data.frame(
+          date = NA
+        )
       }
 
       if('acceleration' %in% variables ) {
         acceleration <- tag[['acceleration']]
-        date <- acceleration$date
-        folder <- acceleration$folder
-        pitch <- acceleration$pit
-        activity <- acceleration$act
+
+        acceleration <- data.frame(
+          date = acceleration$date,
+          folder = acceleration$folder,
+          pitch = acceleration$pit,
+          activity = acceleration$act
+        )
+
       } else {
-        pitch <- NA
-        activity <- NA
+        acceleration <- data.frame(date = NA)
       }
 
       if('temperature' %in% variables ) {
         temperature <- tag[['temperature']]
-        date <- temperature$date
-        folder <- temperature$folder
-        temperature <- temperature$obs
+
+        temperature <- data.frame(
+          date = temperature$date,
+          folder = temperature$folder,
+          temperature = temperature$obs
+        )
+
       } else {
-        temperature <- NA
+        temperature <- data.frame(date = NA)
       }
 
-      if (exists("folder")){
-        data.frame(
-          tag = x,
-          folder = folder,
-          date = date,
-          pressure = pressure,
-          pitch = pitch,
-          activity = activity,
-          temperature = temperature
-        )
-      } else {
-        data.frame(
-          tag = x,
-          date = date,
-          pressure = pressure,
-          pitch = pitch,
-          activity = activity,
-          temperature = temperature
-        )
+      # combine data
+      tmp <- dplyr::full_join(pressure, acceleration)
+      tmp <- dplyr::full_join(tmp, temperature)
+      tmp$tag <- x
+      return(tmp)
       }
-    }
   })
 
   df <- dplyr::bind_rows(df)
